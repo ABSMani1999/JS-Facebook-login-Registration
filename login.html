@@ -1,0 +1,116 @@
+<!doctype HTML>
+<html>
+	<head>
+	
+		<title> Login </title>
+		<meta charset "utf-8">
+		<meta name="description" content="Login"/>
+		<meta name="keywords" content="HTML,CSS,Java script"/>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+		
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+		<link href="style.css" rel="stylesheet"/>
+	</head>
+	<body>
+		<section>
+			<div class="login-container">
+				<div class="login-row">
+					<div class="login-col1">
+						<img src="img/fb.svg">
+						<p>Facebook helps you connect and share with the people in your life.</p>
+					</div>
+					<div class="login-col2">
+					<form>
+						<div>
+							<input type="text" class="form-input" id="mobileNo" placeholder="Email address or phone number"/>
+							<p class="error-msg">Please enter your email or mobile no..!</p>
+							<p class="error-incorrect">Your email or mobile no is invailded..!</p>
+						</div>
+						<div>
+							<input type="password" class="form-input" id="npw" placeholder="Password"/>
+							<p class="error-msg">Please enter your password..!</p>
+							<p class="error-incorrect">Your password is invailded..!</p>
+						</div>
+							<button type="submit" id="login">Log in</button>
+					</form>
+						<a href="#" id="forgetP">Forgotten password?</a>
+						<a href="registration.html" id="create">Create new account </a>
+					</div>
+				</div>
+			</div>
+		</section>
+<!-- SCRIPT -->
+		<script>
+		
+		var form = document.getElementsByTagName("form")[0];
+		var input = document.getElementsByClassName("form-input");
+
+	form.addEventListener('submit',login);
+	
+	function login(e){
+	
+		e.preventDefault();
+		//console.log(e);
+		let mobileNo = document.getElementById("mobileNo");
+		let Password = document.getElementById("npw");
+		
+		let getUser = localStorage.getItem('userName');
+		let getPass = localStorage.getItem('Password');
+		//console.log(getMob,getPass);
+		var flag = true;
+		for(i=0; i<input.length; i++){
+		
+		if(input[i].value == ""){
+				var pEle = input[i].parentNode.querySelector(".error-msg");
+				pEle.classList.add("error-show");
+				flag = false;
+			
+				var pEle = Password.parentNode.querySelector(".error-incorrect");
+					pEle.classList.remove("error-show");
+				var pEle = input[i].parentNode.querySelector(".error-incorrect");
+					pEle.classList.remove("error-show");
+		}
+			
+		else if(input[i].value != ""){
+				var pEle = input[i].parentNode.querySelector(".error-msg");
+				pEle.classList.remove("error-show");
+				flag = true;
+			if(mobileNo.value == getUser && getPass == Password.value){
+				location.href="https://www.andrewlowry.com/images/blog/facebook-welcome-post-template.jpg"
+				}
+			else if(mobileNo.value == getUser){
+				var pEle = mobileNo.parentNode.querySelector(".error-incorrect");
+				pEle.classList.remove("error-show");
+				
+				if(Password.value == getPass){
+					var pEle = Password.parentNode.querySelector(".error-incorrect");
+					pEle.classList.remove("error-show");
+				}
+			
+				else if(getPass != Password.value){
+					var pEle = Password.parentNode.querySelector(".error-incorrect");
+					pEle.classList.add("error-show");
+				}
+				
+			}
+			
+			else if(getUser != mobileNo.value && flag == true){
+				var pEle = mobileNo.parentNode.querySelector(".error-incorrect");
+				pEle.classList.add("error-show");
+			}
+			
+			
+			
+
+
+			
+		}
+			
+		
+		
+		
+	}
+}
+	
+		</script>
+	</body>
