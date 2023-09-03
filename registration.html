@@ -1,7 +1,6 @@
 <!doctype HTML>
 <html>
 	<head>
-	
 		<title> Sign Up for Facebook </title>
 		<meta charset "utf-8">
 		<meta name="description" content=""/>
@@ -33,7 +32,7 @@
 							</div>
 							<div class="npw">
 								<input type="password" id="npw" placeholder="New password" class="form-class" />
-							<p class="error-msg">Please enter your password..!</p>
+								<p class="error-msg">Please enter your password..!</p>
 							</div>
 							<div class="dob">
 								<label>Date of birth<i class="bi bi-question-circle-fill"></i></label>
@@ -73,7 +72,7 @@ var form = document.getElementsByTagName("form")[0];
 	
 	function registration(e){
 		e.preventDefault();
-		<!-- console.log('clicked') -->
+		 //console.log('clicked')
 		var flag = true;
 		
 		for(i=0; i<input.length; i++){
@@ -99,7 +98,7 @@ var form = document.getElementsByTagName("form")[0];
 					localStorage.setItem('userName',mobileNo);
 					localStorage.setItem('Password',Password);
 					alert("Hello user your data's successful saved!");
-					location.href="login.html";
+					location.href="index.html";
 				}	
 	}
 		</script>
